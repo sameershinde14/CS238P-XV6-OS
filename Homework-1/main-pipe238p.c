@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
     else{
-        //wait(NULL);
+        wait(NULL);
         int pid2 = fork();
         if(pid2 == -1){
             printf("Fork failed. Exiting..");
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
             close(pipesChild[0]);
             close(pipesChild[1]);
 
-            //wait(NULL);
+            wait(NULL);
             char *command[2] = {"wc", NULL};
             execvp(command[0], command);
             printf("execvp for %s failed. Exiting", command[0]);
